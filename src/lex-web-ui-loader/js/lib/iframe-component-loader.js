@@ -162,8 +162,8 @@ export class IframeComponentLoader {
     const { poolId: cognitoPoolId } =
       this.config.cognito;
     const region =
-      this.config.cognito.region || this.config.region || 'us-east-1';
-    const poolName = `cognito-idp.us-east-1.amazonaws.com/${this.config.cognito.appUserPoolName}`;
+      this.config.cognito.region || this.config.region || 'eu-west-1';
+    const poolName = `cognito-idp.eu-west-1.amazonaws.com/${this.config.cognito.appUserPoolName}`;
     let credentials;
     const idtoken = localStorage.getItem('idtokenjwt');
     if (idtoken) { // auth role since logged in
@@ -178,11 +178,11 @@ export class IframeComponentLoader {
         console.error(new Error(`cognito auth credentials could not be created ${err}`));
       }
     } else { // noauth role
-      const identityIdValue = localStorage.getItem('aws.cognito.identity-id.us-east-1:06de3a58-1e89-4048-95bc-0d8cbd750d37');
+      const identityIdValue = localStorage.getItem('aws.cognito.identity-id.eu-west-1:06de3a58-1e89-4048-95bc-0d8cbd750d37');
       console.error(identityIdValue);
       try {
         credentials = new AWS.CognitoIdentityCredentials(
-          { IdentityPoolId: cognitoPoolId, IdentityId: 'us-east-1:a5a1a580-ab4f-420e-8b4b-376dc3c20d61' },
+          { IdentityPoolId: cognitoPoolId, IdentityId: 'eu-west-1:a5a1a580-ab4f-420e-8b4b-376dc3c20d61' },
           { region },
         );
       } catch (err) {
@@ -245,8 +245,8 @@ export class IframeComponentLoader {
       const { poolId: cognitoPoolId } =
         this.config.cognito;
       const region =
-        this.config.cognito.region || this.config.region || 'us-east-1';
-      const poolName = `cognito-idp.us-east-1.amazonaws.com/${this.config.cognito.appUserPoolName}`;
+        this.config.cognito.region || this.config.region || 'eu-west-1';
+      const poolName = `cognito-idp.eu-west-1.amazonaws.com/${this.config.cognito.appUserPoolName}`;
       if (!cognitoPoolId) {
         return reject(new Error('missing cognito poolId config'));
       }
