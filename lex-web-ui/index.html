@@ -8,6 +8,24 @@
   </head>
   <body>
     <div id="lex-app"></div>
+    <!-- Inject mosaic libraries -->
+    <script>
+      window.mosaicConfigure = {
+        componentPath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest',
+        vendorPath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest/vendor',
+        themePath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest',
+        useLayout: true,
+        useScaffold: true,
+        useControls: true,
+        useData: true,
+        useForms: true,
+        useMessaging: true,
+        usePages: true,
+        usePageLoader: true,
+      };
+  </script>
+  <script src="https://cdn.svc.oneadvanced.com/mosaic-components/latest/components-loader.js"
+          async></script>
     <!-- built files will be auto injected -->
   </body>
 </html>

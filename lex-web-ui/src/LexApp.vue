@@ -1,11 +1,12 @@
 <template>
   <div id="lex-app">
-    <page
+    <mosaic-page
       v-bind:favIcon="favIcon"
       v-bind:pageTitle="pageTitle"
       v-once
-    ></page>
+    >
     <router-view></router-view>
+    </mosaic-page>
   </div>
 </template>
 

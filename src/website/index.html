@@ -18,6 +18,25 @@
       Creates a global variable named ChatbotUiLoader.
     -->
     <script src="./lex-web-ui-loader.js"></script>
+	<!-- Inject mosaic libraries -->
+    <script>
+      window.mosaicConfigure = {
+        componentPath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest',
+        vendorPath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest/vendor',
+        themePath: 'https://cdn.svc.oneadvanced.com/mosaic-components/latest',
+        useLayout: true,
+        useScaffold: true,
+        useControls: true,
+        useData: true,
+        useForms: true,
+        useMessaging: true,
+        usePages: true,
+        usePageLoader: true,
+      };
+  </script>
+  <script src="https://cdn.svc.oneadvanced.com/mosaic-components/latest/components-loader.js"
+          async></script>
+<!-- End of mosaic loading -->		  
     <!--
       The following script instantiate the full page loader and
       calls its load function.

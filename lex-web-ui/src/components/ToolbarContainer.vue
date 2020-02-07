@@ -1,24 +1,23 @@
 <template>
-  <v-toolbar
+  <mosaic-navbar
     v-bind:color="toolbarColor"
     app
     dark
     dense
     fixed
   >
-    <img v-if="toolbarLogo" v-bind:src="toolbarLogo"/>
+    <mosaic-img v-if="toolbarLogo" v-bind:src="toolbarLogo"/>
 
-    <v-menu v-if="isEnableLogin" offset-y>
-
-      <v-btn
+    <mosaic-toolbar v-if="isEnableLogin" offset-y>
+      <mosaic-button
         slot="activator"
         dark
         icon
       >
-        <v-icon>
+        <mosaic-icon>
           {{'menu'}}
-        </v-icon>
-      </v-btn>
+        </mosaic-icon>
+      </mosaic-button>
 
       <v-list>
         <v-list-tile>
@@ -26,15 +25,15 @@
           <v-list-tile-title v-if="!isLoggedIn" v-on:click="requestLogin">{{ items[0].title }}</v-list-tile-title>
         </v-list-tile>
       </v-list>
-    </v-menu>
+    </mosaic-toolbar>
 
     
     <div class="nav-buttons">
-      <v-btn small icon :disabled="isBackProcessing" class="nav-button-prev" v-on="prevNavEventHandlers" v-on:click="onPrev" v-show="hasPrevUtterance">
-        <v-icon>
+      <mosaic-button small icon :disabled="isBackProcessing" v-on="prevNavEventHandlers" v-on:click="onPrev" v-show="hasPrevUtterance">
+        <mosaic-icon>
           arrow_back
-        </v-icon>
-      </v-btn>
+        </mosaic-icon>
+      </mosaic-button>
       <v-tooltip v-model="prevNav" activator=".nav-button-prev" right>
         <span>Previous</span>
       </v-tooltip>
@@ -66,17 +65,14 @@
     >
       <span id="help-tooltip">help</span>
     </v-tooltip>
-    <v-btn
+    <mosaic-button
       v-if="helpButton"
       v-on:click="sendHelp"
       v-on="tooltipHelpEventHandlers"
-      icon
+      icon="help"
       class="help-toggle"
     >
-      <v-icon>
-        help_outline
-      </v-icon>
-    </v-btn>
+    </mosaic-button>
     <v-btn
       v-if="$store.state.isRunningEmbedded"
       v-on:click="toggleMinimize"
@@ -88,7 +84,7 @@
         {{ isUiMinimized ?  'arrow_drop_up' : 'arrow_drop_down' }}
       </v-icon>
     </v-btn>
-  </v-toolbar>
+  </mosaic-navbar>
 </template>
 
 <script>

@@ -14,7 +14,7 @@ export WEBAPP_BUCKET ?= $()
 # AWS cli env variables used when running/building
 # Override by setting it in the environment before running make
 export AWS_DEFAULT_PROFILE ?= default
-export AWS_DEFAULT_REGION ?= us-east-1
+export AWS_DEFAULT_REGION ?= eu-west-1
 
 # lex-web-ui config variables
 export BOT_NAME ?= OrderFlowers

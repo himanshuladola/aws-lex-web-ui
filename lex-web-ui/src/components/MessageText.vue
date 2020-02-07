@@ -1,26 +1,22 @@
 <template>
-  <div
+  <mosaic-chat-message 
     v-if="message.text && (message.type === 'human' || message.type === 'feedback')"
-    class="message-text"
   >
    {{ message.text }}
-  </div>
-  <div
+  </mosaic-chat-message>
+  <mosaic-chat-message 
     v-else-if="altHtmlMessage && AllowSuperDangerousHTMLInMessage"
     v-html="altHtmlMessage"
-    class="message-text"
-  ></div>
-  <div
+  ></mosaic-chat-message>
+  <mosaic-chat-message 
     v-else-if="message.text && shouldRenderAsHtml"
     v-html="botMessageAsHtml"
-    class="message-text"
-  ></div>
-  <div
+  ></mosaic-chat-message>
+  <mosaic-chat-message sent
     v-else-if="message.text && message.type === 'bot'"
-    class="message-text"
   >
     {{ (shouldStripTags) ? stripTagsFromMessage(message.text) : message.text }}
-  </div>
+  </mosaic-chat-message>
 </template>
 
 <script>

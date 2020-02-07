@@ -38,24 +38,21 @@
         >
           <span id="input-button-tooltip">{{inputButtonTooltip}}</span>
         </v-tooltip>
-        <v-btn
+        <mosaic-button
           v-if="shouldShowSendButton"
           v-on:click="postTextMessage"
           v-on="tooltipEventHandlers"
           v-bind:disabled="isSendButtonDisabled"
           ref="send"
-          class="black--text input-button"
-          icon
+          icon="sent"
         >
-          <v-icon medium>send</v-icon>
-        </v-btn>
+        </mosaic-button>
         <v-btn
           v-else
           v-on:click="onMicClick"
           v-on="tooltipEventHandlers"
           v-bind:disabled="isMicButtonDisabled"
           ref="mic"
-          class="black--text input-button"
           icon
         >
           <v-icon medium>{{micButtonIcon}}</v-icon>

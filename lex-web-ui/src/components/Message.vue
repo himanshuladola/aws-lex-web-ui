@@ -1,14 +1,14 @@
 <template>
-  <v-flex d-flex class="message">
+  <div d-flex HL="123">
     <!-- contains message and response card -->
-    <v-layout column ma-2 class="message-layout">
 
       <!-- contains message bubble and date -->
-      <v-flex d-flex class="message-bubble-date-container">
+      <mosaic-chat-message d-flex v-bind:tabindex="message.id + 1"
+                v-on:focus="onMessageFocus"
+                v-on:blur="onMessageBlur"
+                v-bind:date="messageHumanDate">
         <v-layout column class="message-bubble-column">
-
           <!-- contains message bubble and avatar -->
-          <v-flex d-flex class="message-bubble-avatar-container">
             <v-layout row class="message-bubble-row">
               <div
                 v-if="shouldShowAvatarImage"
@@ -17,12 +17,6 @@
                 class="bot-avatar focusable"
               >
               </div>
-              <div
-                v-bind:tabindex="message.id + 1"
-                v-on:focus="onMessageFocus"
-                v-on:blur="onMessageBlur"
-                class="message-bubble focusable"
-              >
                 <message-text
                   v-bind:message="message"
                   v-if="'text' in message && message.text !== null && message.text.length"
@@ -40,46 +34,46 @@
                     icon
                     class="black--text ml-0 mr-0"
                   >
-                    <v-icon class="play-icon">play_circle_outline</v-icon>
+                    <mosaic-icon>play_circle_outline</mosaic-icon>
                   </v-btn>
                 </div>
                 <div
                   v-if="message.id === this.$store.state.messages.length - 1 && isLastMessageFeedback && message.type === 'bot' && botDialogState && showDialogFeedback"
                   class="feedback-state"
                 >
-                  <v-icon 
+                  <mosaic-icon
                     v-on:click="onButtonClick(positiveIntent)"
                     v-bind:class="{'feedback-icons-positive': !positiveClick, 'positiveClick': positiveClick}"
+                    name="thumbs_up"
                   >
-                    thumb_up
-                  </v-icon>
-                  <v-icon 
+                  </mosaic-icon>
+                  <mosaic-icon 
                     v-on:click="onButtonClick(negativeIntent)"
                     v-bind:class="{'feedback-icons-negative': !negativeClick, 'negativeClick': negativeClick}"
+                    name="thumbs_down"
                   >
-                    thumb_down
-                  </v-icon>
+                  </mosaic-icon>
                 </div>
-                <v-icon
+                <mosaic-icon
                   medium
                   v-if="message.type === 'bot' && botDialogState && showDialogStateIcon"
                   v-bind:class="`dialog-state-${botDialogState.state}`"
                   class="dialog-state"
                 >
                   {{botDialogState.icon}}
-                </v-icon>
-              </div>
+                </mosaic-icon>
             </v-layout>
-          </v-flex>
-          <v-flex
+<!--
+          <mosaic-chat-message
             v-if="shouldShowMessageDate && isMessageFocused"
             class="text-xs-center message-date"
           >
            {{messageHumanDate}}
-          </v-flex>
+          </mosaic-chat-message>
+-->
         </v-layout>
-      </v-flex>
-      <v-flex
+      </mosaic-chat-message>
+      <mosaic-chat-message
         v-if="shouldDisplayResponseCard"
         class="response-card"
         d-flex
@@ -91,9 +85,8 @@
           v-bind:key="index"
         >
         </response-card>
-      </v-flex>
-    </v-layout>
-  </v-flex>
+      </mosaic-chat-message>
+  </div>
 </template>
 
 <script>

@@ -369,7 +369,6 @@ export default {
 .message-list-container {
   /* vuetify toolbar and footer are 48px each when using 'dense' */
   height: calc(100% - 96px);
-  position: fixed;
-  top: 48px;
+  margin-top: 10px;
 }
 </style>

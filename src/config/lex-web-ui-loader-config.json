@@ -1,28 +1,28 @@
 {
   "cognito": {
-    "poolId": "us-east-1:06de3a58-1e89-4048-95bc-0d8cbd750d37",
-    "appUserPoolClientId": "",
-    "appUserPoolName": "",
-    "appDomainName": "",
+    "poolId": "eu-west-1:a4c2e391-d564-4415-9bda-359e6039109f",
+    "appUserPoolClientId": "4hlvka92n11pqb2u9lp0itrrmd",
+    "appUserPoolName": "eu-west-1_peNWn4IUp",
+    "appDomainName": "cloudhrbotuserpoolsdkidentity.auth.eu-west-1.amazoncognito.com",
     "appUserPoolIdentityProvider": ""
   },
   "lex": {
-    "botName": "OrderFlowers",
+    "botName": "CloudHR",
     "botAlias": "$LATEST",
-    "initialText": "",
-    "initialSpeechInstruction": "",
+    "initialText": "Just type \"Hi Cloud HR\" or click on the mic and say it.",
+    "initialSpeechInstruction": "Say 'Hi Cloud HR' to get started.",
     "reInitSessionAttributesOnRestart": false
   },
   "ui": {
-    "parentOrigin": "",
-    "toolbarTitle": "Order Config",
+    "parentOrigin": "https://cloudhldev.azurewebsites.net",
+    "toolbarTitle": "Cloud HR",
     "toolbarLogo": "",
-    "positiveFeedbackIntent": "",
-    "negativeFeedbackIntent": "",
-    "helpIntent": "help",
+    "positiveFeedbackIntent": "Thumbs up",
+    "negativeFeedbackIntent": "Thumbs down",
+    "helpIntent": "Help",
     "enableLogin": false,
     "AllowSuperDangerousHTMLInMessage": true,
-    "shouldDisplayResponseCardTitle": false,
+    "shouldDisplayResponseCardTitle": true,
     "pushInitialTextOnRestart": false,
     "directFocusToBotInput": false,
     "showDialogStateIcon": false
@@ -34,7 +34,7 @@
     "preset": "speech_recognition"
   },
   "iframe": {
-    "iframeOrigin": "",
+    "iframeOrigin": "https://cloudhrbotmosaic.s3-eu-west-1.amazonaws.com",
     "shouldLoadIframeMinimized": false,
     "iframeSrcPath": "/index.html#/?lexWebUiEmbed=true"
   }
