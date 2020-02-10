@@ -5,16 +5,18 @@
     dark
     dense
     fixed
+    name="navbar"
   >
     <mosaic-img v-if="toolbarLogo" v-bind:src="toolbarLogo"/>
 
-    <mosaic-toolbar v-if="isEnableLogin" offset-y>
+    <mosaic-toolbar v-if="isEnableLogin" offset-y name="toolbar">
       <mosaic-button
         slot="activator"
         dark
         icon
+        name="activator"
       >
-        <mosaic-icon>
+        <mosaic-icon name="menuicon">
           {{'menu'}}
         </mosaic-icon>
       </mosaic-button>
@@ -29,7 +31,7 @@
 
     
     <div class="nav-buttons">
-      <mosaic-button small icon :disabled="isBackProcessing" v-on="prevNavEventHandlers" v-on:click="onPrev" v-show="hasPrevUtterance">
+      <mosaic-button name="previous" small icon :disabled="isBackProcessing" v-on="prevNavEventHandlers" v-on:click="onPrev" v-show="hasPrevUtterance">
         <mosaic-icon>
           arrow_back
         </mosaic-icon>

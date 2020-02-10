@@ -1,6 +1,6 @@
 <template>
   <div id="lex-app">
-    <mosaic-page
+    <mosaic-page name="rootpage"
       v-bind:favIcon="favIcon"
       v-bind:pageTitle="pageTitle"
       v-once
